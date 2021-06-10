@@ -25,9 +25,9 @@ const AuthForm = () => {
 
     let url;
     if (isLogin) {
-      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCZ31cxrhk2lcF-rD-R2-AT3CJJHICydiE';
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_NOT_SECRET_CODE}`;
     } else {
-      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCZ31cxrhk2lcF-rD-R2-AT3CJJHICydiE';
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_NOT_SECRET_CODE}`;
     }
 
     fetch(url, {
@@ -74,7 +74,7 @@ const AuthForm = () => {
         </div>
         <div className={classes.control}>
           <label htmlFor='password'>Your Password</label>
-          <input type='password' id='password' required ref={passwordInputRef} />
+          <input type='password' id='password' ref={passwordInputRef} required />
         </div>
         <div className={classes.actions}>
           {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button>}

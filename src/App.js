@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
@@ -9,6 +9,7 @@ import AuthContext from './store/auth-context';
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
+
 
   return (
     <Layout>
